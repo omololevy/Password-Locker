@@ -41,6 +41,6 @@ This program allows players to;
 ## Support and contact details
 contact me @omololevy@gmail.com
 ### License
-The project is under [MIT license](https://github.com/Levy/Password-Locker/blob/master/LICENSE) 
+The project is under [MIT license](https://github.com/omololevy/Password-Locker/blob/master/LICENSE) 
 Copyright &copy; 2021.All rigths reservedg
   
