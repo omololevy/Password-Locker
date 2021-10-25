@@ -65,4 +65,32 @@ class Credentials:
 
     else:
         for item in self.credntial_list:
-          print(f"Account: {item.acc_name}; Username: {item.acc_userName}; Password: {item.acc_pass}")      
+          print(f"Account: {item.acc_name}; Username: {item.acc_userName}; Password: {item.acc_pass}")
+
+  def delete_credential(self):
+    """Method to delete stored credentials from the app."""
+    print("  \n Delete a credential.")
+    print("-"*10)
+    self.view_credentials()
+    print(" ")
+    if len(self.credntial_list)==0:
+      print("No credential available for delete!!")
+      pass
+    else:
+      delete_operation=True
+      while delete_operation:
+        acc_delete=input("type account name you intend to delete:\n")
+        for item in self.credntial_list:
+          if item.acc_name==acc_delete:
+            self.credntial_list.remove(item)
+            print(f"{acc_delete} account credentials deleted successfully!")
+            delete_operation=False
+            break
+          else:
+              delete_operation=True
+
+        if delete_operation==False:
+          pass
+        else:
+            print(f"Account \"{acc_delete}\" not found!!")
+            
