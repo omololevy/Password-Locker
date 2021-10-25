@@ -9,4 +9,3 @@ class User:
   @classmethod
   def add_new_user(cls, new_user): #This adds a new user to the users list.
     cls.user_list.append(new_user)
-    
