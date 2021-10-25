@@ -35,3 +35,10 @@ class Password:
       except ValueError:
         print("Invalid Input!! Kindly use numbers.")
         num_valid=True
+
+    generated_password="".join(random.sample(cls.pass_chars, l=pass_length))
+
+    pyperclip.copy(generated_password)
+
+    return generated_password
+    
