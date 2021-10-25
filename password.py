@@ -13,7 +13,7 @@ class Password:
   pass_chars.extend(pass_symbols)
 
   @classmethod
-  def gen_passwords(cls):
+  def gen_password(cls):
     """
     Method to generate random passwords for a system.
     
