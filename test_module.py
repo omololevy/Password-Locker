@@ -17,4 +17,7 @@ class UserTest(unittest.TestCase):
     self.credentials_info=Credentials()
 
   def tearDown(self):
+    """
+    This method cleans the tests after every test cases
+    """
     User.user_list = []
