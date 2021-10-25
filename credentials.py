@@ -1,4 +1,5 @@
 from pyperclip import init_klipper_clipboard
+import pyperclip
 import password
 import account
 
@@ -93,4 +94,33 @@ class Credentials:
           pass
         else:
             print(f"Account \"{acc_delete}\" not found!!")
-            
+
+  def copy_credential(self):
+    """
+    Method that copies user credentials (username and password) to clipboard
+    """
+    print("  \n Copy username and password.")
+    print("-"*10)
+    self.view_credentials()
+    print("\n")
+    if len(self.credntial_list)==0:
+      print("No credetial to copy to clipboard!")
+      pass
+    else:
+      copy_operation=True
+      while copy_operation:
+        acc_copy= input("Enter the account name you intend to copy.")
+        for item in self.credntial_list:
+          if item.acc_name==acc_copy:
+            userAndPassword=item.acc_userName+ " "+item.acc_pass
+            pyperclip.copy(userAndPassword)
+            print(f"{acc_copy} username and password copied to clipboard!")
+
+            copy_operation=False
+            break
+          else:
+            copy_operation=True
+        if copy_operation==False:
+          pass
+        else:
+          print(f"Account \"{acc_copy}\" not found!!")
