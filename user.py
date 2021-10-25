@@ -1,4 +1,3 @@
-from _typeshed import Self
 import credentials
 
 class User:
@@ -13,5 +12,6 @@ class User:
     self.credential=credentials.Credentials()
 
   @classmethod
-  def add_new_user(cls, new_user): #This adds a new user to the users list.
+  def add_new_user(cls, new_user): 
+    """This adds a new user to the users list."""
     cls.user_list.append(new_user)
