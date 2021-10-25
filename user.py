@@ -24,3 +24,15 @@ class User:
         if user.password==login_password:
           return True
     return False
+
+  @classmethod
+  def return_user(cls, username, password):
+    """
+    Method to check show the user upon successful login
+    """
+    for user in cls.users_list:
+      if user.username==username:
+        if user.password==password:
+          return user
+    return False
+      
