@@ -23,7 +23,7 @@ class Credentials:
 
   def create_credential(self):
     """This method create new credential and adds it to the app"""
-    print("  \n Add your credential here.")
+    print("  \n Create your credential here.")
     print("-"*15)
     acc_name= input("Enter account name:\n")
     acc_userName= input("Account username:\n")
@@ -56,4 +56,13 @@ class Credentials:
     self.credntial_list.append(new_acc)
     print(f"{acc_name} account credentials created successfully!")
 
-      
+  def view_credentials(self):
+    """Method to display stored credentials."""
+    print("  \n View your credential here.")
+    print("-"*15)
+    if len(self.credntial_list)==0:
+      print("No saved credentilas yet. Please add.")
+
+    else:
+        for item in self.credntial_list:
+          print(f"Account: {item.acc_name}; Username: {item.acc_userName}; Password: {item.acc_pass}")      
