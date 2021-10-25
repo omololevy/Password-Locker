@@ -21,3 +21,12 @@ class UserTest(unittest.TestCase):
     This method cleans the tests after every test cases
     """
     User.user_list = []
+
+  def test_account_init(self):
+    """
+    This checks if the objects of Account class are intitialized correctly.
+    """
+    self.assertEqual(self.account_info.acc_name, "Twitter")
+    self.assertEqual(self.account_info.acc_userName, "Levy")
+    self.assertEqual(self.account_info.acc_pass, "levy1010")
+    
