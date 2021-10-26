@@ -52,3 +52,12 @@ class UserTest(unittest.TestCase):
     """
     self.assertEqual(self.user_info.username, "Levy")
     self.assertEqual(self.user_info.password, "levy1010")
+
+  def test_add_user(self):
+    """
+    This method tests if a user can be added to the userlist
+    """
+    self.user_info.add_new_user(self.user_info)
+    self.assertEqual(len(User.users_list), 1)
+
+    
