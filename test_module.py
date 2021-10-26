@@ -83,4 +83,11 @@ class UserTest(unittest.TestCase):
     self.user_info.add_new_user(self.user_info)
     self.assertEqual(User.return_user("Levy", "levy1010"), self.user_info)
 
+  def test_add_credential(self):
+    """
+    This method tests if existing credential can be added to the credential list.
+    """
+    self.credentials_info.add_credential()
+    self.assertEqual(len(self.credentials_info.credntial_list), 1)
+
   
