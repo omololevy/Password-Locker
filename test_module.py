@@ -1,4 +1,6 @@
 import unittest
+
+import pyperclip
 from account import Account
 from credentials import Credentials
 from user import User
@@ -37,4 +39,11 @@ class UserTest(unittest.TestCase):
     """
     pass_length=input("Test the system genereated password length:\n")
     self.assertEqual(len(Password.gen_password()),pass_length)
+
+  def test_gen_password_copy(self):
+    """
+    Tests if the password generated is copied to the clipboard
+    """
+    self.assertEqual(Password.gen_password(),pyperclip.paste())
+
     
