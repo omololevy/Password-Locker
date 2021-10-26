@@ -60,4 +60,12 @@ class UserTest(unittest.TestCase):
     self.user_info.add_new_user(self.user_info)
     self.assertEqual(len(User.users_list), 1)
 
+  def test_add_multiple_users(self):
+    """
+    This method tests the ability of adding more than one user to the userlist.
+    """
+    self.user_info.add_new_user(self.user_info)
+    another_user_info=User("Omolo", "omolo1515")
+    another_user_info.add_new_user(another_user_info)
+    self.assertEqual(len(User.users_list), 2)
     
