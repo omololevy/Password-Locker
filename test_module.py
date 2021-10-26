@@ -46,4 +46,9 @@ class UserTest(unittest.TestCase):
     """
     self.assertEqual(Password.gen_password(),pyperclip.paste())
 
-    
+  def test_user_init(self):
+    """
+    This method tests if the objects of the class User are properly initialized.
+    """
+    self.assertEqual(self.user_info.username, "Levy")
+    self.assertEqual(self.user_info.password, "levy1010")
