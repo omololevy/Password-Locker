@@ -119,4 +119,5 @@ class UserTest(unittest.TestCase):
     self.credentials_info.copy_credential()
     self.assertEqual(pyperclip.paste(), "Levy levy1010")
 
-    
+if __name__ == '__main__':
+    unittest.main()
