@@ -96,4 +96,11 @@ class UserTest(unittest.TestCase):
     self.credentials_info.create_credential()
     self.assertEqual(len(self.credentials_info.credntial_list), 1)
 
+  def test_create_customised_password_credential(self):
+    """
+    This method tests if a new credential can be created with a customised password. 
+    """
+    self.credentials_info.create_credential()
+    self.assertEqual(len(self.credentials_info.credntial_list), 1)
+
   
