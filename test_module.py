@@ -1,5 +1,4 @@
 import unittest
-
 import pyperclip
 from account import Account
 from credentials import Credentials
@@ -88,6 +87,13 @@ class UserTest(unittest.TestCase):
     This method tests if existing credential can be added to the credential list.
     """
     self.credentials_info.add_credential()
+    self.assertEqual(len(self.credentials_info.credntial_list), 1)
+
+  def test_create_credential_system_password(self):
+    """
+    This method tests if new credential can be created with a system generated password.
+    """
+    self.credentials_info.create_credential()
     self.assertEqual(len(self.credentials_info.credntial_list), 1)
 
   
