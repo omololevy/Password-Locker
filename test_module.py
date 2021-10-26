@@ -103,4 +103,12 @@ class UserTest(unittest.TestCase):
     self.credentials_info.create_credential()
     self.assertEqual(len(self.credentials_info.credntial_list), 1)
 
+  def test_delete_credential(self):
+    """
+    This method tests whether a credential can be deleted.
+    """
+    self.credentials_info.add_credential()
+    self.credentials_info.delete_credential()
+    self.assertEqual(len(self.credentials_info.credntial_list),0)
+
   
