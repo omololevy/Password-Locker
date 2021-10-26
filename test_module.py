@@ -2,6 +2,7 @@ import unittest
 from account import Account
 from credentials import Credentials
 from user import User
+from password import Password
 
 class UserTest(unittest.TestCase):
   """Test class that tests cases for the password locker and executions
@@ -29,4 +30,11 @@ class UserTest(unittest.TestCase):
     self.assertEqual(self.account_info.acc_name, "Twitter")
     self.assertEqual(self.account_info.acc_userName, "Levy")
     self.assertEqual(self.account_info.acc_pass, "levy1010")
+
+  def test_gen_password(self):
+    """
+    Method to test if the password generated satitsfies the required length
+    """
+    pass_length=input("Test the system genereated password length:\n")
+    self.assertEqual(len(Password.gen_password()),pass_length)
     
