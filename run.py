@@ -63,13 +63,14 @@ def login():
         login_password = input("Enter Password:\n")
         valid_login = user.User.check_login(login_username, login_password)
         if valid_login:
-            print("Login successful!")
+            print("Login successful!\n")
             is_login = False
             user_info = user.User.return_user(login_username, login_password)
             account_menu(login_username, user_info)
         else:
-            print("Login Failed!!")
+            print("Login Failed!! You don't have an account.\n")
             is_login = True
+            register()
 
 
 def account_menu(this_user_name, this_user_object):
@@ -108,11 +109,12 @@ def account_menu(this_user_name, this_user_object):
             this_user_object.credential.delete_credential()
         elif selected == "6":
             is_selected = False
-            print("LOGGED OUT.")
+            print("LOGGED OUT.\n")
             print(" ")
         else:
-            print("Invalid Option!")
+            print("Invalid Option!\n")
             is_selected = True
+            account_menu()
 
 
 def main():
@@ -124,7 +126,7 @@ def main():
     proceed = "1"
     to_proceed = True
     while to_proceed:
-        proceed = input("Press 1 to login or 0 to exit: ")
+        proceed = input("Press 1 to login or 0 to exit:\n")
         if proceed == "1":
             to_proceed = True
 
@@ -138,14 +140,18 @@ def main():
                     register()
                     has_valid_account = False
                 else:
-                    print("Invalid choice!! Choose y/n")
+                    print("Invalid choice!! Choose y/n\n")
                     has_valid_account = True
+                                 
 
         elif proceed == "0":
             to_proceed = False
         else:
             print("Invalid Option!!")
             to_proceed = True
+            main()
+
+    
     print("GOOD BYE. NICE TIME!")
 
 if __name__ == "__main__":
