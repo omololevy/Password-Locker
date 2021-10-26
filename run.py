@@ -113,7 +113,7 @@ def account_menu(this_user_name, this_user_object):
             print("LOGGED OUT.")
             print(" ")
         else:
-            print("nvalid Option!")
+            print("Invalid Option!")
             is_selected = True
 
 
