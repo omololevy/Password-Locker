@@ -76,4 +76,11 @@ class UserTest(unittest.TestCase):
     self.user_info.add_new_user(self.user_info)
     self.assertTrue(self.user_info.check_login("Levy", "levy1010"))
 
-    
+  def test_return_user(self):
+    """
+    Method to test whether the correct user is returned upon login.
+    """
+    self.user_info.add_new_user(self.user_info)
+    self.assertEqual(User.return_user("Levy", "levy1010"), self.user_info)
+
+  
