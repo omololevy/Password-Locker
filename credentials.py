@@ -33,8 +33,8 @@ class Credentials:
       #if a user wants a valid generated password
     need_password =True
     while need_password:
-      need_syst_password=input("Do you want the password generated for you? Y/n")
-      if need_syst_password =="Y":
+      need_syst_password=input("Do you want the password generated for you? Y/n\n").lower()
+      if need_syst_password =="y":
         need_password= False
         acc_pass=passcord.gen_password()
         print(f"Your password: {acc_pass} (copied to clipboard)")
@@ -50,7 +50,7 @@ class Credentials:
           need_password= True
 
       else:
-          print("..Invalid Choice!! Choose Y/n")
+          print("..Invalid Choice!! Choose y/n")
           need_password=True
 
     new_acc=account.Account(acc_name,acc_userName,acc_pass)
@@ -62,11 +62,18 @@ class Credentials:
     print("  \n View your credential here.")
     print("-"*15)
     if len(self.credntial_list)==0:
-      print("No saved credentilas yet. Please add.")
-
+      print("No saved credentilas yet. Please add.\n")
+      task=input("Would you consider; 1. Create credential.\t 2. Add Existing credential.\n")
+      if task=="1":
+        self.create_credential()
+      elif task=="2":
+        self.add_credential()
+      else:
+        print("Invalid choice")
+        self.view_credentials()
     else:
         for item in self.credntial_list:
-          print(f"Account: {item.acc_name}; Username: {item.acc_userName}; Password: {item.acc_pass}")
+          print(f"Account: {item.acc_name}; Username: {item.acc_userName}; Password: {item.acc_pass}\n")
 
   def delete_credential(self):
     """Method to delete stored credentials from the app."""
@@ -75,7 +82,7 @@ class Credentials:
     self.view_credentials()
     print(" ")
     if len(self.credntial_list)==0:
-      print("No credential available for delete!!")
+      print("No credential available for delete!!\n")
       pass
     else:
       delete_operation=True
@@ -84,7 +91,7 @@ class Credentials:
         for item in self.credntial_list:
           if item.acc_name==acc_delete:
             self.credntial_list.remove(item)
-            print(f"{acc_delete} account credentials deleted successfully!")
+            print(f"{acc_delete} account credentials deleted successfully!\n")
             delete_operation=False
             break
           else:
@@ -109,12 +116,12 @@ class Credentials:
     else:
       copy_operation=True
       while copy_operation:
-        acc_copy= input("Enter the account name you intend to copy.")
+        acc_copy= input("Enter the account name you intend to copy.\n")
         for item in self.credntial_list:
           if item.acc_name==acc_copy:
             userAndPassword=item.acc_userName+ " "+item.acc_pass
             pyperclip.copy(userAndPassword)
-            print(f"{acc_copy} username and password copied to clipboard!")
+            print(f"{acc_copy} username and password copied to clipboard!\n")
 
             copy_operation=False
             break

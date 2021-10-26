@@ -17,35 +17,37 @@ def register():
         register_username = input("Enter username:(at least 3 characters):\n")
         if len(register_username) < 3:
             valid_username = True
-            print("The username is too short!!")
+            print("\nThe username is too short!!\n")
         else:
             valid_username = False
 
     need_password = True
     while need_password:
-        need_sys_password = input("Do you want the password generated for you? y/n\n").lower()
+        need_sys_password = input("Do you want the password created for you? y/n\n").lower()
         if need_sys_password == "y":
             need_password = False
             register_password = password_info.gen_password()
-            print(
-                f"Your password: {register_password} (copied to clipboard)\n Registration Successful!")
+            print(f"Your password: {register_password} (copied to clipboard)\n\n Registration Successful!\n")
         elif need_sys_password == "n":
-            register_password = input(
-                "Enter password, at least 8 characters:\n")
-            confirm_password = input("Confirm password:\n")
+            register_password = input("Create a password, at least 8 characters:\n")
+            confirm_password = input("Confirm the password:\n")
             if len(register_password) < 8:
-                need_password = True
-                print("Password too short!")
+                print("This password is too short!")
+                need_password=True
 
             elif confirm_password == register_password:
-                print("Registration Successful!")
+                print("Registration Successful! Your Account has been created.\n")
+                print("*"*60)
+                print("\n```Now Login!````")
                 need_password = False
 
             else:
-                print("Passwords do not match!")
+                print("Passwords do not match!\n")
+                need_password=True
 
         else:
             print("Invalid Choice!! Choose y/n")
+            need_password=True
 
     new_user = user.User(register_username, register_password)
     new_user.add_new_user(new_user)
@@ -68,7 +70,8 @@ def login():
             user_info = user.User.return_user(login_username, login_password)
             account_menu(login_username, user_info)
         else:
-            print("Login Failed!! You don't have an account.\n")
+            print("Login Failed!! You don't have an existing account.\n")
+            print("Kindly consider Registration.\n")
             is_login = True
             register()
 
@@ -77,21 +80,23 @@ def account_menu(this_user_name, this_user_object):
     """
     Function that displays a navigation menu in a user's account.
     """
-
-    print(f"WELCOME TO YOUR ACCOUNT, {this_user_name.upper()}")
-    print("Options menu")
-    print("1. Add existing credential  - press 1")
-    print("2. Create new credential    - press 2")
-    print("3. View saved credentials   - press 3")
-    print("4. Copy username & password - press 4")
-    print("5. Delete saved credential  - press 5")
-    print("6. Log out                  - press 6")
+    print("*"*20)
+    print(f"HELLO  {this_user_name.upper()}, WELCOME TO YOUR ACCOUNT!")
+    print("*"*20)
+    print("Options Menu.")
+    print("`"*15)
+    print("1. To Add Existing credential  - press 1")
+    print("2. To Create new credential    - press 2")
+    print("3. To View Saved credentials   - press 3")
+    print("4. To Copy Username & Password - press 4")
+    print("5. To Delete saved credential  - press 5")
+    print("6. Log out                     - press 6")
+    print("7. QUIT!!                      - press 7")
 
     is_selected = True
     while is_selected:
         print(" ")
-        selected = input(
-            "What operation do you want to do? Select an option from above: ")
+        selected = input("CHOOSE ACTION. select option from above:\n")
         if selected == "1":
             is_selected = True
             this_user_object.credential.add_credential()
@@ -108,8 +113,11 @@ def account_menu(this_user_name, this_user_object):
             is_selected = True
             this_user_object.credential.delete_credential()
         elif selected == "6":
-            is_selected = False
             print("LOGGED OUT.\n")
+            break
+        elif selected == "7":
+            is_selected = False
+            print("EXITED!.\n")
             print(" ")
         else:
             print("Invalid Option!\n")
@@ -121,14 +129,14 @@ def main():
     """
     This is the main method that runs the entire app.
     """
-    print("*"*25)
-    print("\n\n\tPASSWORD LOCKER.")
-    print("`"*30)
+    print("\n")
+    print("`"*60)
+    print("\n\t\tPASSWORD LOCKER.")
+    print("`"*60)
     proceed = "1"
     to_proceed = True
     while to_proceed:
-        print("*"*20)
-        proceed = input("Press 1 to login or 0 to exit:\n\n")
+        proceed = input("Press 1 to LAUNCH APP or 0 to EXIT:\n\n")
         if proceed == "1":
             to_proceed = True
 

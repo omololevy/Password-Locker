@@ -26,14 +26,14 @@ class Password:
       try:
         pass_length = int(input("Enter a password length of your desire(Not less than 8):\n"))
         if pass_length<8:
-          print("This is too short!! Try Again.\n")
+          print("\nThis is too short!! Try Again.\n")
           num_valid=True
 
         else:
           num_valid=False
 
       except ValueError:
-        print("Invalid Input!! Kindly use numbers.\n")
+        print("\nInvalid Input!! Kindly use numbers.\n")
         num_valid=True
 
     generated_password="".join(random.sample(cls.pass_chars, pass_length))
