@@ -48,3 +48,23 @@ def register():
   new_user.add_new_user(new_user)
   login()
   
+def login():
+    """
+    Function that allows a user with an existing account to login.
+    """
+    is_login=True
+    while is_login:
+        
+        login_username=input("Enter username:\n")
+        login_password=input("Enter Password:\n")
+        valid_login=user.User.check_login(login_username, login_password)
+        if valid_login:
+            print("Login successful!")
+            is_login=False
+            user_info=user.User.return_user(login_username, login_password)
+            account_menu(login_username, user_info)
+        else:
+            print("Login Failed!!")
+            is_login=True
+
+
