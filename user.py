@@ -14,7 +14,7 @@ class User:
   @classmethod
   def add_new_user(cls, new_user): 
     """This adds a new user to the users list."""
-    cls.user_list.append(new_user)
+    cls.users_list.append(new_user)
 
   @classmethod
   def check_login(cls, login_name, login_password):
