@@ -67,4 +67,43 @@ def login():
             print("Login Failed!!")
             is_login=True
 
-
+def account_menu(this_user_name, this_user_object):
+    """
+    Function that displays a navigation menu in a user's account.
+    """
+   
+    print(f"WELCOME TO YOUR ACCOUNT, {this_user_name.upper()}")
+    print("Options menu")
+    print("1. Add existing credential  - press 1")
+    print("2. Create new credential    - press 2")
+    print("3. View saved credentials   - press 3")
+    print("4. Copy username & password - press 4")
+    print("5. Delete saved credential  - press 5")
+    print("6. Log out                  - press 6")    
+        
+    is_selected=True
+    while is_selected:
+        print(" ")
+        selected=input("What operation do you want to do? Select an option from above: ")
+        if selected=="1":
+            is_selected=True
+            this_user_object.credential.add_credential()
+        elif selected=="2":
+            is_selected=True
+            this_user_object.credential.create_credential()
+        elif selected=="3":
+            is_selected=True
+            this_user_object.credential.view_credentials()
+        elif selected=="4":
+            is_selected=True
+            this_user_object.credential.copy_credential()
+        elif selected=="5":
+            is_selected=True
+            this_user_object.credential.delete_credential()
+        elif selected=="6":
+            is_selected=False 
+            print("LOGGED OUT.")
+            print(" ")       
+        else:
+            print("nvalid Option!")
+            is_selected=True
