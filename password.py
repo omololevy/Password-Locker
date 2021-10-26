@@ -24,19 +24,19 @@ class Password:
     num_valid = True
     while num_valid:
       try:
-        pass_length = int(input("Enter a password length of your desire(Not less than 8):"))
+        pass_length = int(input("Enter a password length of your desire(Not less than 8):\n"))
         if pass_length<8:
-          print("This is too short!! Try Again.")
+          print("This is too short!! Try Again.\n")
           num_valid=True
 
         else:
           num_valid=False
 
       except ValueError:
-        print("Invalid Input!! Kindly use numbers.")
+        print("Invalid Input!! Kindly use numbers.\n")
         num_valid=True
 
-    generated_password="".join(random.sample(cls.pass_chars, l=pass_length))
+    generated_password="".join(random.sample(cls.pass_chars, pass_length))
 
     pyperclip.copy(generated_password)
 
