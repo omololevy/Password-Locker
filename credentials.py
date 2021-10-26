@@ -37,7 +37,8 @@ class Credentials:
       if need_syst_password =="y":
         need_password= False
         acc_pass=passcord.gen_password()
-        print(f"Your password: {acc_pass} (copied to clipboard)")
+        print(f"Your password: {acc_pass} (copied to clipboard)\n")
+        print("````Login Now````")
 
       elif need_password=="n":
         acc_pass=input("Enter Account password:\n")
