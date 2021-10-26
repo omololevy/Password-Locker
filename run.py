@@ -1,9 +1,8 @@
-#!/usr/bin /env python3.9
+#!/usr/bin /env python3.9.5
 import password
 import user
 
 password_info = password.Password()
-
 
 def register():
     """
@@ -24,9 +23,8 @@ def register():
 
     need_password = True
     while need_password:
-        need_sys_password = input(
-            "Do you want the password generated for you? Y/n")
-        if need_sys_password == "Y":
+        need_sys_password = input("Do you want the password generated for you? y/n\n").lower()
+        if need_sys_password == "y":
             need_password = False
             register_password = password_info.gen_password()
             print(
@@ -47,7 +45,7 @@ def register():
                 print("Passwords do not match!")
 
         else:
-            print("Invalid Choice!! Choose Y/n")
+            print("Invalid Choice!! Choose y/n")
 
     new_user = user.User(register_username, register_password)
     new_user.add_new_user(new_user)
@@ -121,8 +119,8 @@ def main():
     """
     This is the main method that runs the entire app.
     """
-    print("PASSWORD LOCKER.")
-    print("`"*20)
+    print("\n\n\tPASSWORD LOCKER.")
+    print("`"*30)
     proceed = "1"
     to_proceed = True
     while to_proceed:
@@ -132,15 +130,15 @@ def main():
 
             has_valid_account = True
             while has_valid_account:
-                has_account = input("Have an account? (Y/n): ")
-                if has_account == "Y":
+                has_account = input("Have an account? (y/n):\n").lower()
+                if has_account == "y":
                     login()
                     has_valid_account = False
                 elif has_account == "n":
                     register()
                     has_valid_account = False
                 else:
-                    print("Invalid choice!! Choose Y/n")
+                    print("Invalid choice!! Choose y/n")
                     has_valid_account = True
 
         elif proceed == "0":
