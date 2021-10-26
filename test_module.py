@@ -111,4 +111,12 @@ class UserTest(unittest.TestCase):
     self.credentials_info.delete_credential()
     self.assertEqual(len(self.credentials_info.credntial_list),0)
 
-  
+  def test_copy_credential(self):
+    """
+    This method tests if the username and password are copied to the clipboard.
+    """
+    self.credentials_info.add_credential()
+    self.credentials_info.copy_credential()
+    self.assertEqual(pyperclip.paste(), "Levy levy1010")
+
+    
