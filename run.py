@@ -121,18 +121,20 @@ def main():
     """
     This is the main method that runs the entire app.
     """
+    print("*"*25)
     print("\n\n\tPASSWORD LOCKER.")
     print("`"*30)
     proceed = "1"
     to_proceed = True
     while to_proceed:
-        proceed = input("Press 1 to login or 0 to exit:\n")
+        print("*"*20)
+        proceed = input("Press 1 to login or 0 to exit:\n\n")
         if proceed == "1":
             to_proceed = True
 
             has_valid_account = True
             while has_valid_account:
-                has_account = input("Have an account? (y/n):\n").lower()
+                has_account = input("Do you have an account? (y/n):\n").lower()
                 if has_account == "y":
                     login()
                     has_valid_account = False
@@ -143,13 +145,11 @@ def main():
                     print("Invalid choice!! Choose y/n\n")
                     has_valid_account = True
                                  
-
         elif proceed == "0":
             to_proceed = False
         else:
             print("Invalid Option!!")
             to_proceed = True
-            main()
 
     
     print("GOOD BYE. NICE TIME!")
