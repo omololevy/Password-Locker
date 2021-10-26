@@ -68,4 +68,12 @@ class UserTest(unittest.TestCase):
     another_user_info=User("Omolo", "omolo1515")
     another_user_info.add_new_user(another_user_info)
     self.assertEqual(len(User.users_list), 2)
+
+  def test_check_login(self):
+    """
+    Checks whether successful login returns the correct login credentials
+    """
+    self.user_info.add_new_user(self.user_info)
+    self.assertTrue(self.user_info.check_login("Levy", "levy1010"))
+
     
